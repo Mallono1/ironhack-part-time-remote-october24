@@ -5037,7 +5037,7 @@ const characters = [
       actorLink: "/name/nm0503319/"
     }
   ];
-
+// const characters = [....]
 // Character data structure {}
   // {
   //   characterName: "",
@@ -5071,25 +5071,146 @@ const characters = [
   
   // Ex1. 
   // Create a function 'getStarks' that return the list of all the characters from house Stark
+      // 1. Go through the list of characters
+     // 2. Check property houseName for 'Stark'
+    // 3. Add the Stark characters in a new list and return it at the end
+  // function getStarks(){
+  //   let starkArray = [];
+
+  //   for(let i = 0; i < characters.length; i++){
+  //     if(characters[i].houseName === 'Stark'){
+  //       starkArray.push(characters[i]);
+  //     }
+  //   }
+  //   return starkArray;
+  // }
+  const getStarks = () => {
+    let starkArray = [];
+
+    for(let i = 0; i < characters.length; i++){
+      if(characters[i].houseName === 'Stark'){
+        starkArray.push(characters[i]);
+      }
+    }
+    return starkArray;
+  }
+
+  const starksList = getStarks();
+  console.log('starksList', starksList.length)
   
   // Ex2. 
   // Create a function 'getRoyals' that returns the list of all royal characters 
+   // 1. Go through the list of characters
+     // 2. Check property 'royal'
+    // 3. Add the royal characters in a new list and return it at the end
+
+  // function getRoyals(){
+  //   let royalsArray = [];
+
+  //   for(let i = 0; i < characters.length; i++){
+  //     if(characters[i].hasOwnProperty('royal')){
+  //       royalsArray.unshift(characters[i]);
+  //     }
+  //   }
+  //   return royalsArray;
+  // }
+const getRoyals = () => {
+  let royalsArray = [];
+
+  for(let i = 0; i < characters.length; i++){
+    if(characters[i].hasOwnProperty('royal')){
+      royalsArray.unshift(characters[i]);
+    }
+  }
+  return royalsArray;
+}
+
+  const royalsList = getRoyals();
+  console.log('royalList', royalsList.length)
 
   // Ex3. 
   // Create a function 'getKills' Return the list of characters that have been killed by Gregor Clegane
-  
+  // 1. Go through the list of characters
+     // 2. Check property 'killedBy' [""]
+  // function getKills(){
+  //     let cleganeKills = [];
+
+  //     for(let i = 0; i < characters.length; i++){
+  //       if(characters[i].hasOwnProperty('killedBy') && characters[i].killedBy.includes("Gregor Clegane")){
+  //         cleganeKills.push(characters[i])
+  //       }
+  //     }
+  //     return cleganeKills;
+  // }
+
+  const getKills = () => {
+    let cleganeKills = [];
+
+    for(let i = 0; i < characters.length; i++){
+      if(characters[i].hasOwnProperty('killedBy') && characters[i].killedBy.includes("Gregor Clegane")){
+        cleganeKills.push(characters[i])
+      }
+    }
+    return cleganeKills;
+}
+
+  const cleganeList = getKills();
+  console.log('cleganeList', cleganeList.length)
+
+
   // Ex4.
-  // Create a function 'houseCharacters' which takes a parameter "houseName" 
+  // Create a function 'houseCharacters' which takes a parameter "houseName"  --> "Lannister", "Targaryen"
   // The function should return the list of characters that are a part of the specified house.
   // The function should check that the houseName entered exists 
-  // and if the user enters an incorrect housename it should print out "The houseName you entered doesn't exist or is typed incorrectly"
+  // and if the user enters an incorrect housename ==> check if houseArray is empty
+  // it should print out "The houseName you entered doesn't exist or is typed incorrectly"
+    // Generate a list of all available houseNames
+    // Check to see if houseName entered is part of that list
+    //
+  function houseCharacters(houseName){
+    let houseArray = []
+    for(let i = 0; i < characters.length; i++){
+      if(characters[i].hasOwnProperty('houseName') && characters[i].houseName === houseName){
+        houseArray.push(characters[i])
+      }
+
+    }
+    return houseArray.length !== 0 ? houseArray : "The houseName you entered doesn't exist or is typed incorrectly";
+  }
+  const johnList = houseCharacters("John snow")
+  const lannisterList = houseCharacters("Lannister")
+  const targaryenList = houseCharacters("Targaryen")
+
+  console.log('johnList', johnList)
+  console.log('lannisterList', lannisterList.length)
+  console.log("targaryenList",targaryenList.length)
 
   // Ex5.
-  // Create a function "killedList"" which takes a parameter "killedBy" with the character name
+  // Create a function "killedList"" which takes a parameter "killerName" with the character name
   // 1/ The function should return in ascending order the list of characters killed by the entered name.
   // 2/ The function should check that the name entered is correct and if the user enters an incorrect name
   // it should print out "the character name you entered is incorrect or incorrectly typed"
   // 3/ If the character hasn't killed anyone, the function should return "No one has been killed by this character"
   // ie: killedList("Sandor Clegane") --> []
 
+function killedList(killerName){
+    for(let i = characters.length - 1; i >= 0; i--){
+      if(characters[i].characterName === killerName){
+        return characters[i].hasOwnProperty('killed') ? 
+                characters[i].killed.sort() : 
+                "No one has been killed by this character";
+      }
+    }
+
+    return "the character name you entered is incorrect or incorrectly typed";
+}
+const sandorKills =  killedList("Sandor Clegane")
+const gregorKills =  killedList("Gregor Clegane")
+const nedKills = killedList("Young Ned Stark")
+const tyrionKills = killedList("Tyrion Lannister")
+
+console.log('sandorKills', sandorKills)
+console.log('gregorKills', gregorKills)
+console.log("nedKills", nedKills)
+console.log("tyrionKills", tyrionKills)
 
