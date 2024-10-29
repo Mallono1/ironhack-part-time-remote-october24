@@ -243,3 +243,37 @@ const calories = menu.reduce((sum, food)=>{
   }, 0)
 
   console.log('averageReview', averageReview)
+
+  const numbers2 = [1, 60, 112, 123, 100, 99, 73, 45];
+
+  const sortNumbers2 = numbers2.sort((a, b)=>{
+        return a-b;
+  })
+
+  console.log('sortNumbers2', sortNumbers2)
+
+
+  const peopleArray2 = [
+    { name: 'Candice', age: 25 },
+    { name: 'Tammy', age: 30 },
+    { name: 'Allen', age: 49 },
+    { name: 'Nettie', age: 21 },
+    { name: 'Stuart', age: 17 }
+  ];
+
+  const sortPeople2 = peopleArray2.sort((a, b) => a.name.localeCompare(b.name)).reverse()
+//   const sortPeople3 = peopleArray2.sort(function (a, b) {
+//     if (a.name < b.name) return 1; 
+//     if (a.name > b.name) return -1;
+//     if (a.name === 0) return 0;
+//   }).reverse();
+const sortPeople4 = peopleArray2.sort(function (a, b) {
+    if (a.name.length < b.name.length) return 1; //  1 here (instead of -1 for ASC)
+    if (a.name.length > b.name.length) return -1; // -1 here (instead of  1 for ASC)
+    if (a.name.length === b.name.length) return 0;
+  });
+  
+
+  console.log('sortPeople4', sortPeople4)
+//   console.log('sortPeople3', sortPeople3)
+   

@@ -5084,19 +5084,22 @@ const characters = [
   //   }
   //   return starkArray;
   // }
-  const getStarks = () => {
-    let starkArray = [];
+  // const getStarks = () => {
+  //   let starkArray = [];
 
-    for(let i = 0; i < characters.length; i++){
-      if(characters[i].houseName === 'Stark'){
-        starkArray.push(characters[i]);
-      }
-    }
-    return starkArray;
+  //   for(let i = 0; i < characters.length; i++){
+  //     if(characters[i].houseName === 'Stark'){
+  //       starkArray.push(characters[i]);
+  //     }
+  //   }
+  //   return starkArray;
+  // }
+  function getStarks(){
+    return characters.filter((character) => { return character.houseName === 'Stark'})
   }
 
   const starksList = getStarks();
-  console.log('starksList', starksList.length)
+  console.log('starksList', starksList)
   
   // Ex2. 
   // Create a function 'getRoyals' that returns the list of all royal characters 
@@ -5114,15 +5117,19 @@ const characters = [
   //   }
   //   return royalsArray;
   // }
-const getRoyals = () => {
-  let royalsArray = [];
+// const getRoyals = () => {
+//   let royalsArray = [];
 
-  for(let i = 0; i < characters.length; i++){
-    if(characters[i].hasOwnProperty('royal')){
-      royalsArray.unshift(characters[i]);
-    }
-  }
-  return royalsArray;
+//   for(let i = 0; i < characters.length; i++){
+//     if(characters[i].hasOwnProperty('royal')){
+//       royalsArray.unshift(characters[i]);
+//     }
+//   }
+//   return royalsArray;
+// }
+
+function getRoyals(){
+  return characters.filter((character) => { return character.hasOwnProperty('royal')})
 }
 
   const royalsList = getRoyals();
