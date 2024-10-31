@@ -6,11 +6,12 @@ const calcCalories = (protein, carbs, fat) => {
 // Add a method introduction() to class Human that returns the human's name, age and gender
 // i.e: I'm Jesus, I'm 33 years old and I am a male.
 class Human {
-    constructor(name, gender, age, calories){
+    constructor(name, gender, age){
         this.name = name;
         this.gender = gender;
         this.age = age;
-        this.calories = calories;
+        this.calories = 0;
+        this.favoriteFoods = [];
     }
     introduction(){
         return `I'm ${this.name}, I'm ${this.age} years old and I am a ${this.gender}.`;
@@ -18,6 +19,9 @@ class Human {
     eatFood(food){
         // const numCalories = (food.protein * 4) + (food.carbs * 4) + (food.fat * 9);
         this.calories += calcCalories(food.protein, food.carbs, food.fat);
+    }
+    addFavorite(food){
+        this.favoriteFoods.push(food)
     }
 }
 // Food {
@@ -59,7 +63,7 @@ class Food {
     }
 }
 
-const jeremy = new Human("Jeremy", "male", 40, 0)
+const jeremy = new Human("Jeremy", "male", 40)
 const egg = new Food('egg', 5, 3, 2);
 jeremy.eatFood(egg)
 

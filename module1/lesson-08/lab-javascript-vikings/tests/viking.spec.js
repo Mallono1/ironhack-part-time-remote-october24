@@ -365,7 +365,7 @@ describe('War', () => {
       });
 
       it('should return "Saxons have fought for their lives and survived another day...", if the Vikings array is empty', () => {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 15; i++) {
           war.saxonAttack();
         }
         expect(war.showStatus()).toEqual(
