@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+
+html {
+    font-size: 10px;
+}
+
+.teko-400 {
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@media (max-width:410px) {
+
+    #header-section {
+        display: none;
+    }
+
+    nav {
+        width: 100vw;
+        height: 5.6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.1rem;
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+        background-color: #FFFFFF;
+    }
+
+    #menu {
+        display: flex;
+        align-items: center;
+    }
+
+    #menu > span {
+        font-size: 2.4rem;
+        margin-right: 1.6rem;
+    }
+
+    #hero-section {
+        height: 26.1rem;
+        background-image: url('../images/hero.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #hero-section > h1 {
+        font-size: 17rem;
+    }
+
+    #button-container {
+        width: 100vw;
+        padding-top: 1.7rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    #button-container > button {
+        width: 37.8rem;
+        height: 5.5rem;
+        background: #0C0C0C;
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    
+    }
+
+   
+}
+
+@media (min-width:411px) {
+    #mobile-header {
+        display: none;
+    }
+
+    #header-section {
+        width: 100vw;
+        height: 71.3rem;
+        background-image: url('../images/hero.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    nav {
+        /* width: 100vw; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2.9rem;
+        margin-left: 3.6rem;
+        margin-right: 3.6rem;
+        padding-bottom: 2.7rem;
+        border-bottom: 0.1rem solid #0E0E0E;
+    }
+
+    #menu {
+        display: flex;
+        align-items: center;
+    }
+
+    #menu > span {
+        font-size: 1.8rem;
+        margin-right: 1.3rem;
+    }
+
+    #hero-section {
+        height: 57.3rem;
+        padding-left: 6.4rem;
+    }
+
+    #hero-section > h1 {
+        font-size: 40rem;
+    }
+
+    #hero-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #button-container {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #button-container > button {
+        width: 16.9rem;
+        height: 5.5rem;
+        background: #0C0C0C;
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-right: 4.2rem;
+    }
+}
