@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul {
+    display:flex;
+  }
+  
+  ul {
+    list-style: none;
+  }
