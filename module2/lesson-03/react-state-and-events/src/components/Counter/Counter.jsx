@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 
-function Counter() {
-    const [count, setCount] = useState(0)
-    const [show, setShow] = useState(true)
+function Counter({ theme }) {
+    const [count, setCount] = useState(0) // creating a state variable "count" with initial value 0
+    const [show, setShow] = useState(true) // creating a state variable "show" with initial value true
 
     const increaseCount = ()=> {
         setCount(count + 1)
@@ -18,8 +18,8 @@ function Counter() {
     }
 
   return (
-    <div className="Counter">
-      <h2>Counter</h2>
+    <div className={`Counter ${theme}`}>
+      {show && <h2>Counter</h2>}
 
       <p>You clicked {count} times</p>
 

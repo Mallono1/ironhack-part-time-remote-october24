@@ -6,13 +6,13 @@ import './App.css';
 function App() {
   const [theme, setTheme] = useState('light');
 
-  const updateTheme = (event) => {
+  const updateTheme = (event)=> {
     console.log('event', event)
     setTheme(event.target.value)
   }
 
   return <div className={`App ${theme}`}>
-            <Counter />
+            <Counter theme={theme} />
             <select onChange={updateTheme}>
               <option value="light"> Light </option>
               <option value="dark"> Dark </option>
