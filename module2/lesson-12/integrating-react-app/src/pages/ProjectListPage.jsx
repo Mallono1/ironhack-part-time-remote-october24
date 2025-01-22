@@ -27,7 +27,7 @@ function ProjectListPage() {
     <div className="ProjectListPage">
       
         {projects.map((project) => {
-          return ( <ProjectCard key={project._id} {...project} />
+          return ( <ProjectCard key={project.id} {...project} />
           );
         })}     
        

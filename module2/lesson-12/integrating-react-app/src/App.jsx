@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
       
-     {/* Below: ADD <Navbar>, <Routes> & <Route> */}
       <Navbar />
 
       <Routes>      

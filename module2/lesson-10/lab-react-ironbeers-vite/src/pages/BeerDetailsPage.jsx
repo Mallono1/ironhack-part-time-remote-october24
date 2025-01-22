@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 function BeerDetailsPage() {
     const { beerId } = useParams();
     console.log('beerId', beerId)
-
+   
     const [beer, setBeer] = useState({});
 
     useEffect(()=>{
@@ -18,6 +18,7 @@ function BeerDetailsPage() {
                 <img src={beer.image_url} width={'100px'} height={'100px'}/>
                 <h2>{beer.name}</h2>
                 <p>{beer.tagline}</p>
+                <p>{beer.description}</p>
                 <p>Created by {beer.contributed_by}</p>
             </div>)
 
