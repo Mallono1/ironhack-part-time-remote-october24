@@ -11,7 +11,7 @@ function ProjectListPage() {
 
   const getAllProjects = () => {
     axios
-      .get(`${API_URL}/projects?_embed=tasks`)
+      .get(`http://localhost:5005/projects?_embed=tasks`)
       .then((response) => setProjects(response.data))
       .catch((error) => console.log(error));
   };

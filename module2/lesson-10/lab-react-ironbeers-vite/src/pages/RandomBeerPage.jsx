@@ -4,10 +4,16 @@ function RandomBeerPage() {
     const [randomBeer, setRandomBeer] = useState({});
 
     useEffect(()=>{
-        fetch(`https://ih-beers-api2.herokuapp.com/beers/random`)
-        .then(response => response.json())
-        .then(data => setRandomBeer(data))
-        .catch(err => console.log(err))
+        async function fetchRandomBeer(){
+            try {
+                const response = await fetch(`https://ih-beers-api2.herokuapp.com/beers/random`)
+                const data = await response.json();
+                setRandomBeer(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchRandomBeer()
     }, [])
 
     if(!randomBeer.name){
