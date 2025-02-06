@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin:0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.main-navigation {
+  flex:1;
+}
+
+.products, .cart {
+  flex:5;
+}
+
+.footer {
+  flex:1 
+}
