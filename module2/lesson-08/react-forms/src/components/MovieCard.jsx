@@ -1,8 +1,8 @@
 import React from "react";
- 
+
 function MovieCard(props) {
   const { movie } = props;
- 
+
   return (
     <div className="MovieCard">
       <h3>{movie.title}</h3>
@@ -11,5 +11,5 @@ function MovieCard(props) {
     </div>
   );
 }
- 
+
 export default MovieCard;
