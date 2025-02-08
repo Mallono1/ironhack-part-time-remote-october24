@@ -8,11 +8,21 @@ function BeerDetailsPage() {
     const [beer, setBeer] = useState({});
 
     useEffect(()=>{
-        fetch(`https://ih-beers-api2.herokuapp.com/beers/${beerId}`)
-        .then(response => response.json())
-        .then(data => setBeer(data))
-        .catch(err => console.log(err))
+      async function fetchSingleBeer(){
+        try {
+                const response = await fetch(`https://ih-beers-api2.herokuapp.com/beers/${beerId}`)
+                const data = response.json();
+                setBeer(data)
+        } catch (error) {
+                console.log(error)
+        }
+      }
+      fetchSingleBeer()
     }, [])
+
+    if(beer.name === undefined){
+        return <p>Loading...</p>
+     } 
 
     return (<div>
                 <img src={beer.image_url} width={'100px'} height={'100px'}/>

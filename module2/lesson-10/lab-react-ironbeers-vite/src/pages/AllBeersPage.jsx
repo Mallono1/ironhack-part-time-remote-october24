@@ -5,10 +5,17 @@ function AllBeersPage() {
     const [beers, setBeers] = useState([]);
 
     useEffect(()=>{
-        fetch('https://ih-beers-api2.herokuapp.com/beers')
-            .then(response => response.json())
-            .then(data => setBeers(data))
-            .catch(err => console.log(err))
+      async function fetchBeers(){
+       try {
+        const response = await fetch('https://ih-beers-api2.herokuapp.com/beers')
+        const data = await response.json()
+        setBeers(data)
+       } catch (error) {
+        console.log(error)
+       }
+      }
+      
+      fetchBeers()
     }, [])
 
      if(beers.length === 0){
