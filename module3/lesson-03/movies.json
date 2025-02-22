@@ -1,0 +1,28 @@
+[
+    {
+      "title": "Inception",
+      "description": "A thief who enters the dreams of others to steal secrets from their subconscious.",
+      "imageUrl": "https://example.com/inception.jpg"
+    },
+    {
+      "title": "The Matrix",
+      "description": "A hacker discovers the world he lives in is a simulation and joins a rebellion against its controllers.",
+      "imageUrl": "https://example.com/matrix.jpg"
+    },
+    {
+      "title": "Interstellar",
+      "description": "A team of astronauts travels through a wormhole in search of a new home for humanity.",
+      "imageUrl": "https://example.com/interstellar.jpg"
+    },
+    {
+      "title": "The Dark Knight",
+      "description": "Batman faces the Joker, a criminal mastermind wreaking havoc on Gotham City.",
+      "imageUrl": "https://example.com/darkknight.jpg"
+    },
+    {
+      "title": "Avatar",
+      "description": "A paraplegic marine is sent to an alien planet and becomes one of its inhabitants.",
+      "imageUrl": "https://example.com/avatar.jpg"
+    }
+  ]
+  
