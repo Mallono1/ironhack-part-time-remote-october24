@@ -8,6 +8,10 @@ const Author = require("./models/Author.model");
  
 const app = express();
  
+
+app.set("views", __dirname + "/views");// define the views folder --> where our hbs files are located
+app.set("view engine", "hbs"); // define the view engine to be hbs
+app.use(express.static(`${__dirname}/public`)) 
 // MIDDLEWARE
 app.use(express.json());
 app.use(logger("dev"));
@@ -22,15 +26,17 @@ mongoose
  
 // ROUTES
 app.get('/', (req, res) => {
-  console.log(req);
+  // console.log(req);
+  res.render('index', { title: 'Books App', message: 'Welcome to the Books App' });
 });
 
 app.get("/books", (req, res) => {
     Book.find({})
-      .then((books) => {
+        .populate("author") 
+        .then((books) => {
         console.log("Retrieved books ->", books);
-      
-        res.status(200).json(books);
+        res.render("books/books", { books: books });
+        // res.status(200).json(books);
       })
       .catch((error) => {
         console.error("Error while retrieving books ->", error);
@@ -41,6 +47,7 @@ app.get("/books/:bookId", (req, res)=>{
     const { bookId } = req.params;
 
     Book.findById(bookId)
+        .populate("author") 
         .then(book => {
             console.log('Single book', book)
             res.json(book)
@@ -101,4 +108,17 @@ app.post("/books", (req, res) => {
         });
   });
 
+  app.post("/authors", (req, res) => {
+    Author.create(req.body)
+      .then((createdAuthor) => {
+        console.log("Author created ->", createdAuthor);
+      
+        res.status(201).json(createdAuthor);
+      })
+      .catch((error) => {
+        console.error("Error while creating the author ->", error);
+        res.status(500).json({ error: "Failed to create the author" });
+      });
+
+  })
 app.listen(process.env.PORT, () => console.log(`App listening on port ${process.env.PORT}!`));
