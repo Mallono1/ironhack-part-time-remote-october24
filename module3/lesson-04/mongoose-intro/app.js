@@ -9,8 +9,8 @@ const Author = require("./models/Author.model");
 const app = express();
  
 
-app.set("views", __dirname + "/views");// define the views folder --> where our hbs files are located
-app.set("view engine", "hbs"); // define the view engine to be hbs
+app.set("views", __dirname + "/views");
+app.set("view engine", "hbs");
 app.use(express.static(`${__dirname}/public`)) 
 // MIDDLEWARE
 app.use(express.json());
